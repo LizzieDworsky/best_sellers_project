@@ -32,14 +32,31 @@ def least_reviews_2018(list_of_books):
     for book in books_2018:
         if current_book.number_of_reviews > book.number_of_reviews:
             current_book = book
-    print(current_book.name)
+    return current_book
 
-# least_reviews_2018(book_list)
-
+# results = least_reviews_2018(book_list)
+# print(f"The book with the least amount of reviews in 2018 is {results.name}.")
 
 
 # (5 points): As a data analyst, I want to determine which genre (fiction/non-fiction) has appeared the most in the top 50s list and print the result to the terminal. (Analysis 2)
 
+def get_top_50(list_of_books):
+    user_ratings = 4.9
+    top_50_books = []
+    while len(top_50_books) <= 50:
+        temp_list = custom_filter(lambda item : item.user_rating > user_ratings, list_of_books)
+        top_50_books.extend(temp_list)
+        user_ratings -= .1
+    while len(top_50_books) != 50:
+        current_book = top_50_books[0]
+        for book in top_50_books:
+            if book.number_of_reviews < current_book.number_of_reviews:
+                current_book = book
+        top_50_books.remove(current_book)
+    return top_50_books    
+
+def most_popular_genre(book_list):
+    
 
 
 
