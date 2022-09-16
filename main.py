@@ -34,7 +34,7 @@ def least_reviews_2018(list_of_books):
             current_book = book
     return current_book
 
-# results = least_reviews_2018(book_list)
+results = least_reviews_2018(book_list)
 # print(f"The book with the least amount of reviews in 2018 is {results.name}.")
 
 
@@ -56,14 +56,24 @@ def get_top_50(list_of_books):
     return top_50_books    
 
 def most_popular_genre(book_list):
-    
+    fiction_books = [book for book in book_list if book.genre == "Fiction"]
+    non_fiction_books = [book for book in book_list if book.genre == "Non Fiction"]
+    if len(non_fiction_books) > len(fiction_books):
+        return "Non-Fiction is more popular"
+    if len(non_fiction_books) < len(fiction_books):
+        return "Fiction is more popular"
 
-
+top_50_books = get_top_50(book_list)
+results = most_popular_genre(top_50_books)
+# print(results)
 
 
 
 # (5 points): As a data analyst, I want to determine what book has been in the top 50s list for the most years and print the book’s title and the number of times 
 # it has appeared in the list to the terminal. (Analysis 3)
+
+
+
 
 # (10 points): As a data analyst, I want to utilize lambda functions and list comprehension within the code responsible for executing each evaluation question solution.
 
