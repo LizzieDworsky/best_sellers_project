@@ -1,3 +1,4 @@
+from unicodedata import name
 from book import Book
 from data import data_list
 
@@ -69,15 +70,23 @@ results = most_popular_genre(top_50_books)
 
 
 
-# (5 points): As a data analyst, I want to determine what book has been in the top 50s list for the most years and print the book’s title and the number of times 
+# (5 points): As a data analyst, I want to determine what book has been in the top 50s 
+# list for the most years and print the book’s title and the number of times 
 # it has appeared in the list to the terminal. (Analysis 3)
 
+def most_popular_book(list_of_books):
+    top_book = {"count": 0}
+    book_titles = [book.name for book in list_of_books]
+    for title in set(book_titles):
+        temp_count = len(list(filter(lambda book_name: book_name == title, book_titles)))
+        if(temp_count > top_book["count"]):
+            top_book = {"name": title, "count": temp_count}
+    return top_book
 
+print(most_popular_book(book_list))
 
 
 # (10 points): As a data analyst, I want to utilize lambda functions and list comprehension within the code responsible for executing each evaluation question solution.
-
-
 # Bonus
 
 # (5 points): As a data analyst, I want to determine what author has shown up on the top 50’s list the most and display the author in the terminal. (Bonus Analysis 1)
