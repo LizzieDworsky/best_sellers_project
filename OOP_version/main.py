@@ -1,4 +1,3 @@
-from unicodedata import name
 from book import Book
 from data import data_list
 
@@ -91,6 +90,9 @@ print(most_popular_book(book_list))
 
 # (5 points): As a data analyst, I want to determine what author has shown up on the top 50’s list the most and display the author in the terminal. (Bonus Analysis 1)
 # HINT: Only count distinct books by that author - Do not include the same book in different years within the calculation
+
+
+
 
 # (5 points): As a data analyst, I want to display the top book for each year based on the book’s user rating & the number of reviews. (Bonus Analysis 2)
 # HINT: Find the top book by ordering by user rating and then ordering by number of reviews. Print the year and the book’s title to the terminal. 
