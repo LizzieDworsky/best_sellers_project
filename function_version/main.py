@@ -43,6 +43,12 @@ def analysis_one(book_list):
 
 def analysis_two(book_list):
     print("Analysis of which genre (fiction or non-fiction) has appeared the most in the book list")
+    fiction_books = [book for book in book_list if book["genre"] == "Fiction"]
+    non_fiction_books = [book for book in book_list if book["genre"] == "Non Fiction"]
+    if len(fiction_books) > len(non_fiction_books):
+        print ("There are more fiction books")
+    else:
+        print ("There are more non-fiction books")
 
 
 def analysis_three(book_list):
