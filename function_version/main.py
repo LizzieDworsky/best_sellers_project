@@ -53,6 +53,15 @@ def analysis_two(book_list):
 
 def analysis_three(book_list):
     print("Analysis of which book has appeared the most in the book list, and how many times it has appeared")
+    book_name_list = [book['name'] for book in book_list]
+    top_book = {"name": "book name", "count": 0}
+    unique_book_names = set(book_name_list)
+    for book_name in unique_book_names:
+        results = len(list(filter(lambda name: name == book_name, book_name_list)))
+        if results > top_book["count"]:
+            top_book["name"] = book_name
+            top_book["count"] = results
+    print(f"Book Title: {top_book['name']}.  Frequency: {str(top_book['count'])}")
 
 
 # BONUS USER STORIES:
